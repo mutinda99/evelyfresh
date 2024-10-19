@@ -1,31 +1,30 @@
 <?php
 // Initialize the session
- 
+
 session_start();
 
-if(!isset($_SESSION['success']) || $_SESSION["success"] !== true){
-    header("location: login.php");
-    exit;
+if (!isset($_SESSION['success']) || $_SESSION["success"] !== true) {
+  header("location: login.php");
+  exit;
 }
-if(!isset ($_POST["hmonth"])){
-     $_POST["hmonth"]= date('Y-m'); }
-	 $time = $_POST["hmonth"];
-	 
-	 /*
+if (!isset($_POST["hmonth"])) {
+  $_POST["hmonth"] = date('Y-m');
+}
+$time = $_POST["hmonth"];
+
+/*
      else
      {
 $time = $_POST["hmonth"];
 }*/
-if($time=='')
-{
-    $time=date('Y-m');
-    
+if ($time == '') {
+  $time = date('Y-m');
 }
 $_SESSION["hmonth"] = $time;
 
-if(!isset($_SESSION["hmonth"])){
-    header("location: fetch2error.php");
-    exit;
+if (!isset($_SESSION["hmonth"])) {
+  header("location: fetch2error.php");
+  exit;
 }
 //echo "" . $time . "<br>";
 
@@ -49,26 +48,26 @@ if(!isset($_SESSION["hmonth"])){
   <!-- Custom fonts for this template-->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  
+
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 
- 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.material.min.css">
-	<!--	<link rel="stylesheet" href="css/bootstrap-custom.css"> -->
-		
-	
-     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
-     
-     
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.material.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.material.min.css">
+  <!--	<link rel="stylesheet" href="css/bootstrap-custom.css"> -->
+
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.material.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
 
 </head>
 
@@ -87,34 +86,34 @@ if(!isset($_SESSION["hmonth"])){
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="new_order.php">
             <i class="fa-brands fa-wpforms"></i>
             <span class="nav-link-text">New Order</span>
           </a>
         </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="all_orders">
             <i class="fa-brands fa-wpforms"></i>
             <span class="nav-link-text">Reports</span>
           </a>
         </li>
-        
-        	<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="special_request">
             <i class="fa-brands fa-wpforms"></i>
             <span class="nav-link-text">Generate Invoice</span>
           </a>
         </li>
-        
-        	<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="#">
             <i class="fa-brands fa-wpforms"></i>
             <span class="nav-link-text">Profile</span>
           </a>
         </li>
-		
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -137,7 +136,7 @@ if(!isset($_SESSION["hmonth"])){
           <div class="dropdown-menu" aria-labelledby="messagesDropdown">
             <h6 class="dropdown-header">New Messages:</h6>
             <div class="dropdown-divider"></div>
-            
+
             <div class="dropdown-divider"></div>
             <a class="dropdown-item small" href="#">View all messages</a>
           </div>
@@ -155,20 +154,20 @@ if(!isset($_SESSION["hmonth"])){
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
             <h6 class="dropdown-header">New Alerts:</h6>
             <div class="dropdown-divider"></div>
-         
+
             <div class="dropdown-divider"></div>
-           
+
             <div class="dropdown-divider"></div>
-           
+
             <div class="dropdown-divider"></div>
             <a class="dropdown-item small" href="#">View all alerts</a>
           </div>
         </li>
         <li class="nav-item">
-         
-                    <form method="POST" action="index.php" id="form">
-                        <input id="hmonth" name="hmonth" type="month" value="<?php echo $_POST["hmonth"]; ?>">
-						 <button>Enter</button>
+
+          <form method="POST" action="index.php" id="form">
+            <input id="hmonth" name="hmonth" type="month" value="<?php echo $_POST["hmonth"]; ?>">
+            <button>Enter</button>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
@@ -184,11 +183,11 @@ if(!isset($_SESSION["hmonth"])){
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active"><?php echo  "Welcome  ". $_SESSION['username'] ?></li>
+        <li class="breadcrumb-item active"><?php echo  "Welcome  " . $_SESSION['username'] ?></li>
       </ol>
       <!-- Icon Cards-->
-	  <?php 
-/*
+      <?php
+      /*
 include 'DbConnect.php';
 $user="select shop_name from users where username ='$_SESSION['username']'";
 
@@ -214,210 +213,216 @@ if (mysqli_num_rows($results) > 0)
  {
   echo '0 results';
 }*/
-?>
+      ?>
 
 
-<?php 
-$usern=$_SESSION['username'];
-include 'DbConnect.php';
-$user="select name from clients where name ='$usern'";
+      <?php
+      $usern = $_SESSION['username'];
+      include 'DbConnect.php';
+      $user = "select name from clients where name ='$usern'";
 
-if (mysqli_query($conn, $user)) 
-{
-   echo "";
-} 
- else 
-{
-  echo "Error: " . $user . "<br>" . mysqli_error($conn);
-}
-$results = mysqli_query($conn, $user);
-if (mysqli_num_rows($results) > 0)
- {
-   // output data of each row
-   while($row = mysqli_fetch_assoc($results))
- {
-	 echo "". $row['name'];
-$vin=$row['name'];
-}
-}
-$sqll = "SELECT 
+      if (mysqli_query($conn, $user)) {
+        echo "";
+      } else {
+        echo "Error: " . $user . "<br>" . mysqli_error($conn);
+      }
+      $results = mysqli_query($conn, $user);
+      if (mysqli_num_rows($results) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($results)) {
+          echo "" . $row['name'];
+          $vin = $row['name'];
+        }
+      }
+
+
+      // $clientCount="select count(*) as total_clients from clients";
+      // if(mysqli_query($conn, $clientCount)){
+      //   echo "";
+      // }
+      // else {
+      //   echo "Error: ". $clientCount . "<br>" . mysqli_error($conn)
+      // }
+      // $clientCountResult = mysqli_query($conn, $clientCount);
+      // if (mysqli_num_rows($clientCountResult) > 0)
+      // {
+      //   while($row = mysqli_fetch_assoc($clientCountResult))
+      //   {
+      //     echo "" . $row
+      //   }
+      // }
+
+
+
+
+
+      $sqll = "SELECT 
+    (SELECT COUNT(*) FROM clients) AS total_clients,
     COUNT(*) AS total_orders,
     SUM(CASE WHEN status = 'completed' THEN 1 ELSE 0 END) AS completed_orders,
     SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) AS pending_orders
-FROM orders where order_date LIKE '%{$time}%' ";
-if (mysqli_query($conn, $sqll)) 
-{
-   echo "";
-} 
- else 
-{
-  echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
-}
-$result = mysqli_query($conn, $sqll);
-if (mysqli_num_rows($result) > 0)
- {
-   // output data of each row
-   while($row = mysqli_fetch_assoc($result))
- { 
-?>
+FROM orders
+WHERE order_date LIKE '%{$time}%';";
+      if (mysqli_query($conn, $sqll)) {
+        echo "";
+      } else {
+        echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
+      }
+      $result = mysqli_query($conn, $sqll);
+      if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+      ?>
 
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-secondary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-               <i class="fa fa-fw fa-shopping-cart"></i>
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-secondary o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fa fa-fw fa-shopping-cart"></i>
+                  </div>
+                  <div class="mr-5"><?php echo $row['total_orders']; ?> All Orders</div>
+                </div>
+
+                <a class="card-footer text-white clearfix small z-1" href="all_orders.php">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                  </span>
+                </a>
+
               </div>
-              <div class="mr-5"><?php echo $row['total_orders']; ?> All Orders</div>
             </div>
-           
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
+
+
+
+
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-secondary o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fa fa-fw fa-check"></i>
+                  </div>
+                  <div class="mr-5"><?php echo $row['completed_orders']; ?> Completed Orders</div>
+                </div>
+
+                <a class="card-footer text-white clearfix small z-1" href="completed_orders.php">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                  </span>
+                </a>
+
+              </div>
+            </div>
+
+
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-secondary o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fa fa-fw fa-clock-o"></i>
+                  </div>
+                  <div class="mr-5"><?php echo $row['pending_orders']; ?> Pending Orders</div>
+                </div>
+
+                <a class="card-footer text-white clearfix small z-1" href="pending_orders.php">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                  </span>
+                </a>
+
+              </div>
+            </div>
+
+
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-secondary o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fa fa-fw fa-users"></i>
+                  </div>
+                  <div class="mr-5"><?php echo $row['total_clients']; ?> Customers</div>
+                </div>
+
+                <a class="card-footer text-white clearfix small z-1" href="musers.php">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                  </span>
+                </a>
+
+              </div>
+            </div>
+        <?php
+        }
+      } else {
+        echo '0 results';
+      }
+        ?>
+
+
 
           </div>
-        </div>
+
+          <?php
+          include 'DbConnect.php';
+          $sqlll = "SELECT count(*) as name from orders";
+
+          if (mysqli_query($conn, $sqlll)) {
+            echo "";
+          } else {
+            echo "Error: " . $sqlll . "<br>" . mysqli_error($conn);
+          }
+
+          $result = mysqli_query($conn, $sqlll);
+          $number = array();
+          if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while ($row = mysqli_fetch_assoc($result)) {
+              $number[] = $row['name'];
+            }
+          } else {
+            echo "0 results";
+          }
+          $number_formated = "[" . implode(",", $number) . "]";
 
 
 
+          ?>
+          <script type="text/javascript">
+            window.dataf = <?php echo $number_formated; ?>
+          </script>
+          <!-- Area Chart Example-->
 
- <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-secondary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-               <i class="fa fa-fw fa-check"></i>
-              </div>
-              <div class="mr-5"><?php echo $row['completed_orders']; ?> Completed Orders</div>
+
+          <!-- Example DataTables Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Recent Orders
             </div>
-           
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-
-          </div>
-        </div>
-
-
-<div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-secondary o-hidden h-100">
             <div class="card-body">
-              <div class="card-body-icon">
-               <i class="fa fa-fw fa-clock-o"></i>
-              </div>
-              <div class="mr-5"><?php echo $row['pending_orders']; ?> Pending Orders</div>
-            </div>
-           
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-
-          </div>
-        </div>
-
-
-<div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-secondary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-               <i class="fa fa-fw fa-users"></i>
-              </div>
-              <div class="mr-5"><?php echo $row['pending_orders']; ?> Customers</div>
-            </div>
-           
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-
-          </div>
-        </div>
-    <?php
-}
-} 
-  else
- {
-  echo '0 results';
-}
-?>
-      
-     
-      
-      </div>
-
-<?php
-include 'DbConnect.php';
-  $sqlll = "SELECT count(*) as name from orders"; 
- 
-  if (mysqli_query($conn, $sqlll))
- {
-  echo "";
- } 
-else
-  { 
-   echo "Error: " . $sqlll . "<br>" . mysqli_error($conn);
-  }
- 
-   $result = mysqli_query($conn, $sqlll);
-   $number=array();
-  if (mysqli_num_rows($result) > 0) 
-{
-// output data of each row
-   while($row = mysqli_fetch_assoc($result))
-  { 
-   $number[]=$row['name'];
-  }
-} 
-   else
-  {
-    echo "0 results";
-  }
-  $number_formated= "[".implode(",",$number)."]";
+              <div class="table-responsive">
+                <table id="example" class="mdl-data-table" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>Order Numberr</th>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Status</th>
+                      <th>Date Ordered</th>
 
 
 
-?>
-  <script type="text/javascript"> 
-  window.dataf= <?php echo $number_formated; ?>
-  </script>
-      <!-- Area Chart Example-->
 
-      
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Recent Orders</div>
-        <div class="card-body">
-          <div class="table-responsive">
-           <table  id="example" class="mdl-data-table" style="width:100%">
-			 <thead>
-				  	<tr>
-				  		<th>Order Numberr</th>
-						<th>Product</th>
-						<th>Quantity</th>
-						<th>Status</th>
-						<th>Date Ordered</th>
-					
-				  	
-						
-				  	
- 
- 
-				  	</tr>	
-				  </thead>
-			<?php
-			
-				$SQLSELECT = "SELECT 
+
+
+                    </tr>
+                  </thead>
+                  <?php
+
+                  $SQLSELECT = "SELECT 
     o.id AS order_number,
     p.name AS product_name,
     oi.quantity AS quantity,
@@ -429,48 +434,47 @@ JOIN products p ON oi.product_id = p.id
 JOIN clients c on o.client_id=c.id
 where c.name='$vin'
 ORDER BY o.order_date DESC";
-				$result_set =  mysqli_query($conn, $SQLSELECT);
-				while($row = mysqli_fetch_array($result_set))
-				{
-				?>
- 
-					<tr>
-						<td><?php echo $row['order_number']; ?></td>
-						<td><?php echo $row['product_name']; ?></td>
-						<td><?php echo $row['quantity']; ?></td>
-						<td><?php echo $row['order_status']; ?></td>
-						<td><?php echo $row['date_ordered']; ?></td>
-					
-	
-						
-				
-					
- 
- 
-					</tr>
-				<?php
-				}
-			?>
-			<!--<tfoot>-->
-			<!--	  	<tr>-->
-			<!--	  		<th>Order Numberr</th>-->
-			<!--			<th>Product</th>-->
-			<!--			<th>Quantity</th>-->
-			<!--			<th>Status</th>-->
-			<!--			<th>Date Ordered</th>-->
-					
-				  	
- 
- 
-			<!--	  	</tr>	-->
-			<!--	  </tfoot>-->
-				  
-				 
-		</table>
+                  $result_set =  mysqli_query($conn, $SQLSELECT);
+                  while ($row = mysqli_fetch_array($result_set)) {
+                  ?>
+
+                    <tr>
+                      <td><?php echo $row['order_number']; ?></td>
+                      <td><?php echo $row['product_name']; ?></td>
+                      <td><?php echo $row['quantity']; ?></td>
+                      <td><?php echo $row['order_status']; ?></td>
+                      <td><?php echo $row['date_ordered']; ?></td>
+
+
+
+
+
+
+
+                    </tr>
+                  <?php
+                  }
+                  ?>
+                  <!--<tfoot>-->
+                  <!--	  	<tr>-->
+                  <!--	  		<th>Order Numberr</th>-->
+                  <!--			<th>Product</th>-->
+                  <!--			<th>Quantity</th>-->
+                  <!--			<th>Status</th>-->
+                  <!--			<th>Date Ordered</th>-->
+
+
+
+
+                  <!--	  	</tr>	-->
+                  <!--	  </tfoot>-->
+
+
+                </table>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
-        </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -503,31 +507,26 @@ ORDER BY o.order_date DESC";
         </div>
       </div>
     </div>
-    	<script> 
-$(document).ready(function () {
-    $('#example').DataTable({
-        dom: 'Bfrtip',
-		pageLength : 5,
-        autoWidth: true,
-        columnDefs: [
-            {
-                targets: ['_all'],
-                className: 'mdc-data-table__cell',
-            },
-        ],
-        buttons: [
-            {
-                extend: 'pdfHtml5',
-               
-            }
-        ]
-          
-       
-    });
-});
+    <script>
+      $(document).ready(function() {
+        $('#example').DataTable({
+          dom: 'Bfrtip',
+          pageLength: 5,
+          autoWidth: true,
+          columnDefs: [{
+            targets: ['_all'],
+            className: 'mdc-data-table__cell',
+          }, ],
+          buttons: [{
+            extend: 'pdfHtml5',
 
-</script>
- 
+          }]
+
+
+        });
+      });
+    </script>
+
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

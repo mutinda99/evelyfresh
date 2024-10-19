@@ -15,9 +15,7 @@
  $time= $_SESSION["hmonth"];
  
 ?>	
-<?php 
-include('pserver.php');
-?>
+
 
 
 
@@ -31,7 +29,7 @@ include('pserver.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Device sales</title>
+  <title>All Orders</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -217,7 +215,7 @@ tr:nth-child(even) {
         <li class="breadcrumb-item">
           <a href="index.html">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Edit Sales Info</li>
+        <li class="breadcrumb-item active">All Orders</li>
       </ol>
       <div class="row">
         
@@ -249,7 +247,7 @@ tr:nth-child(even) {
 				<a class="brand" href="#"></a>
 				
 				<?php 
-	include 'devices_sales.php';
+	include 'all_orders_table.php';
  
 ?>	
 

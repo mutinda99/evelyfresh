@@ -1,5 +1,4 @@
-
-<?php include('server.php') ?>
+<?php include('create_new_user.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>Register New User</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -21,7 +20,7 @@
 <body class="bg-dark">
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
+      <div class="card-header">Register New User</div>
       <div class="card-body">
         <form method="post" action="register.php">
           <?php include('errors.php'); ?>
@@ -29,61 +28,56 @@
             <div class="form-row">
               <div class="col-md-12">
                 <label for="exampleInputName">Username</label>
-                <input class="form-control" id="exampleInputName" type="text"   name="username" value="<?php echo $username; ?>" >
+                <input class="form-control" id="exampleInputName" type="text" name="username" value="<?php echo $username; ?>">
               </div>
-              
+
             </div>
           </div>
           <div class="form-group">
-            <?php
-include("DbConnect.php");
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="phone">Phone Number</label>
+                <input class="form-control" id="phone" type="tel" name="phone" value="<?php echo $phone; ?>">
+              </div>
 
-?>
-
-  <label>Shop</label>
-  <br>
-<select class="form-control" name="email">
-    <?php 
-    $query ="SELECT shop FROM shops";
-    $result = $conn->query($query);
-    if($result->num_rows> 0){
-        while($optionData=$result->fetch_assoc()){
-        $option =$optionData['shop'];
-    ?>
-    <?php
-    //selected option
-    if(!empty($shop) && $shop== $option){
-    // selected option
-    ?>
-    <option value="<?php echo $option; ?>" selected><?php echo $option; ?> </option>
-    <?php 
-continue;
-   }?>
-    <option value="<?php echo $option; ?>" ><?php echo $option; ?> </option>
-   <?php
-    }}
-    ?>
-</select>
+            </div>
           </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="email" name="email" value="<?php echo $email; ?>">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <label for="text">Location</label>
+                <input class="form-control" id="text" type="text" name="location" value="<?php echo $location; ?>">
+              </div>
+
+            </div>
+          </div>
+
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" name="password_1" >
+                <input class="form-control" id="exampleInputPassword1" type="password" name="password_1">
               </div>
-             <div class="col-md-6">
+              <div class="col-md-6">
                 <label for="exampleInputPassword1">Confirm Password</label>
-                <input class="form-control" id="exampleInputPassword2" type="password" name="password_2" >
+                <input class="form-control" id="exampleInputPassword2" type="password" name="password_2">
               </div>
             </div>
           </div>
-          
-           <button type="submit" class="btn btn-primary btn-block" name="reg_user">Register</button>
+
+          <button type="submit" class="btn btn-primary btn-block" name="reg_user">Register</button>
         </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="login.php">Login Page</a>
-        <!---  <a class="d-block small" href="forgot-password.html">Forgot Password?</a>-->
-        </div>
+
       </div>
     </div>
   </div>
